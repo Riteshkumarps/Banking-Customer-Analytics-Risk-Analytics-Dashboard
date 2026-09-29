@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Banking Customer Analytics | Verified Insights & Recommendations</title>
+<style>
+:root{--bg:#f6f8fc;--card:#fff;--ink:#172033;--muted:#64748b;--blue:#2563eb;--green:#0f766e;--line:#e2e8f0;--soft:#eff6ff;--softg:#ecfdf5;--amber:#fffbeb}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,Segoe UI,Arial,sans-serif;line-height:1.6}
+.wrap{max-width:1180px;margin:auto;padding:34px 22px 60px}
+.hero{background:linear-gradient(135deg,#172554,#2563eb);color:white;padding:42px;border-radius:22px;box-shadow:0 18px 45px rgba(15,23,42,.14)}
+.eyebrow{font-size:12px;text-transform:uppercase;letter-spacing:.13em;font-weight:800;opacity:.8}
+h1{font-size:38px;line-height:1.15;margin:8px 0}
+.hero p{color:#dbeafe;max-width:850px;font-size:17px;margin:0}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:22px 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px;box-shadow:0 5px 18px rgba(15,23,42,.04)}
+.metric .label{font-size:13px;color:var(--muted)} .metric .value{font-size:26px;font-weight:800;margin-top:4px}
+section{margin-top:30px} h2{font-size:25px;margin:0 0 14px} h3{margin-top:0}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.insight{border-left:4px solid var(--blue);background:var(--soft)}
+.recommend{border-left:4px solid var(--green);background:var(--softg)}
+.note{border-left:4px solid #d97706;background:var(--amber)}
+.num{display:inline-flex;width:30px;height:30px;border-radius:50%;align-items:center;justify-content:center;background:#dbeafe;color:#1d4ed8;font-weight:800;margin-right:8px}
+table{width:100%;border-collapse:collapse;background:white;border-radius:14px;overflow:hidden}
+th,td{padding:12px 14px;text-align:left;border-bottom:1px solid var(--line);font-size:14px}
+th{background:#f8fafc;color:#475569;font-size:12px;text-transform:uppercase;letter-spacing:.04em}
+.badge{background:#eef2ff;color:#3730a3;padding:4px 9px;border-radius:999px;font-weight:700}
+li{margin:8px 0} .footer{margin-top:30px;padding:18px;color:var(--muted);font-size:13px;border-top:1px solid var(--line)}
+@media(max-width:800px){.grid,.two{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.grid,.two{grid-template-columns:1fr}h1{font-size:30px}.hero{padding:28px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+<div class="eyebrow">Banking Analytics Portfolio Project • Verified V2</div>
+<h1>Banking Customer Analytics & BI Dashboard</h1>
+<p>Verified business insights and recommendations based on the supplied banking customer dataset. This page is designed as the business-story layer for the Python EDA and Power BI dashboard.</p>
+</header>
+
+<div class="grid">
+<div class="card metric"><div class="label">Customers</div><div class="value">3,000</div></div>
+<div class="card metric"><div class="label">Total Bank Deposits</div><div class="value">$2,014,680,582</div></div>
+<div class="card metric"><div class="label">Total Bank Loans</div><div class="value">$1,774,158,466</div></div>
+<div class="card metric"><div class="label">Total Business Lending</div><div class="value">$2,600,279,425</div></div>
+</div>
+
+<section>
+<h2>Executive Summary</h2>
+<div class="card">
+<p>The dataset contains <strong>3,000 customer records</strong> with no missing values detected in the supplied Banking.csv. The analysis shows meaningful differences in financial balances across income bands and risk-weighting groups.</p>
+<p>The strongest measured relationship is between <strong>Bank Deposits and Checking Accounts (r = 0.844)</strong>. Bank Deposits also have a positive relationship with Saving Accounts (r = 0.755). Income has a moderate positive relationship with Bank Loans (r = 0.330).</p>
+<p>These are <strong>associations, not causal relationships</strong>. Business recommendations should therefore be validated using profitability, customer response, credit policy and operational constraints.</p>
+</div>
+</section>
+
+<section>
+<h2>Key Findings</h2>
+<div class="two">
+<div class="card insight">
+<h3><span class="num">1</span>Deposits & checking are closely related</h3>
+<p>Bank Deposits and Checking Accounts have a correlation of <strong>0.844</strong>, indicating a strong positive linear association in this dataset.</p>
+<p><strong>Business interpretation:</strong> customers with substantial deposit balances can be examined for relationship-deepening opportunities around transaction and savings products.</p>
+</div>
+
+<div class="card insight">
+<h3><span class="num">2</span>Higher income aligns with larger balances</h3>
+<p>Average Bank Deposits increase from <strong>$486,223</strong> in the Low income band to <strong>$929,822</strong> in the High income band.</p>
+<p>Average loans and business lending also increase across the same income bands.</p>
+</div>
+
+<div class="card insight">
+<h3><span class="num">3</span>Risk-weighting shows different exposure levels</h3>
+<p>The dataset contains five risk-weighting levels. Risk 2 is the largest group with <strong>1,222 customers</strong>. Average loan and business-lending balances differ across the risk groups.</p>
+<p>This can support portfolio monitoring and segmentation, subject to the bank's actual risk definitions and policies.</p>
+</div>
+
+<div class="card insight">
+<h3><span class="num">4</span>Customer mix is concentrated in High income</h3>
+<p>The High income band contains <strong>456 customers (15.2%)</strong>, making it the largest of the three income segments defined for this analysis.</p>
+<p>The Fee Structure distribution is also uneven, with High as the largest category (1,476 customers).</p>
+</div>
+</div>
+</section>
+
+<section>
+<h2>Income Segment Analysis</h2>
+<div class="card">
+<table>
+<thead><tr><th>Income Band</th><th>Customers</th><th>Share</th><th>Avg Deposits</th><th>Avg Loans</th><th>Avg Business Lending</th></tr></thead>
+<tbody><tr><td><span class='badge'>Low</span></td><td>1,027</td><td>34.2%</td><td>$486,223</td><td>$436,410</td><td>$636,062</td></tr><tr><td><span class='badge'>Mid</span></td><td>1,517</td><td>50.6%</td><td>$719,400</td><td>$621,286</td><td>$913,226</td></tr><tr><td><span class='badge'>High</span></td><td>456</td><td>15.2%</td><td>$929,822</td><td>$840,951</td><td>$1,231,755</td></tr></tbody>
+</table>
+</div>
+</section>
+
+<section>
+<h2>Risk Exposure Snapshot</h2>
+<div class="card">
+<table>
+<thead><tr><th>Risk Weighting</th><th>Customers</th><th>Avg Deposits</th><th>Avg Loans</th><th>Avg Business Lending</th></tr></thead>
+<tbody><tr><td><strong>1</strong></td><td>836</td><td>$378,247</td><td>$334,192</td><td>$485,876</td></tr><tr><td><strong>2</strong></td><td>1,222</td><td>$654,272</td><td>$575,785</td><td>$863,361</td></tr><tr><td><strong>3</strong></td><td>460</td><td>$879,598</td><td>$786,635</td><td>$1,142,423</td></tr><tr><td><strong>4</strong></td><td>322</td><td>$970,253</td><td>$848,690</td><td>$1,250,317</td></tr><tr><td><strong>5</strong></td><td>160</td><td>$1,136,932</td><td>$975,217</td><td>$1,318,393</td></tr></tbody>
+</table>
+</div>
+</section>
+
+<section>
+<h2>Correlation Evidence</h2>
+<div class="card">
+<table>
+<thead><tr><th>Variable Pair</th><th>Pearson Correlation</th></tr></thead>
+<tbody><tr><td>Deposits ↔ Checking Accounts</td><td><strong>0.844</strong></td></tr><tr><td>Deposits ↔ Saving Accounts</td><td><strong>0.755</strong></td></tr><tr><td>Income ↔ Bank Loans</td><td><strong>0.330</strong></td></tr><tr><td>Business Lending ↔ Bank Loans</td><td><strong>0.417</strong></td></tr><tr><td>Business Lending ↔ Deposits</td><td><strong>0.441</strong></td></tr></tbody>
+</table>
+</div>
+</section>
+
+<section>
+<h2>Customer Gender ID Check</h2>
+<div class="card">
+<p>The Banking.csv stores gender as <strong>GenderId</strong>. The analysis only assigns human-readable gender names when they are explicitly present in the supplied gender lookup file.</p>
+<table>
+<thead><tr><th>Gender value</th><th>Customers</th><th>Share</th></tr></thead>
+<tbody><tr><td>Female</td><td>1,512</td><td>50.4%</td></tr><tr><td>Male</td><td>1,488</td><td>49.6%</td></tr></tbody>
+</table>
+</div>
+</section>
+
+<section>
+<h2>Recommendations</h2>
+<div class="two">
+<div class="card recommend">
+<h3>1. Deposit & savings cross-sell</h3>
+<p>Use deposit and checking balances to identify customers for savings and relationship-deepening campaigns.</p>
+<ul><li>Target customers with relatively high deposits and lower savings balances.</li><li>Track conversion, incremental deposits and products per customer.</li></ul>
+</div>
+
+<div class="card recommend">
+<h3>2. Income-based customer journeys</h3>
+<p>Create differentiated product journeys because financial balances vary across Low, Mid and High income bands.</p>
+<ul><li>Low: savings and foundational banking products.</li><li>Mid: lending and savings combinations.</li><li>High: evaluate premium, investment and wealth-oriented services where appropriate.</li></ul>
+</div>
+
+<div class="card recommend">
+<h3>3. Combine risk with exposure</h3>
+<p>Use Risk Weighting together with loan and business-lending balances for portfolio monitoring and credit-review prioritization.</p>
+<ul><li>Investigate high-exposure customers within higher-risk groups.</li><li>Do not use correlation alone as a credit decision rule.</li></ul>
+</div>
+
+<div class="card recommend">
+<h3>4. Deepen business relationships</h3>
+<p>Business Lending has a positive association with Bank Loans (r = 0.417) and Bank Deposits (r = 0.441).</p>
+<ul><li>Identify customers combining business lending with meaningful deposit balances.</li><li>Evaluate cash-management and working-capital opportunities.</li></ul>
+</div>
+</div>
+</section>
+
+<section>
+<h2>Recommended Portfolio Story</h2>
+<div class="card">
+<p><strong>Business Question:</strong> How can a bank use customer financial behavior to identify valuable segments, understand portfolio exposure and improve product relationships?</p>
+<p><strong>Data:</strong> 3,000 banking customer records with financial, demographic, relationship and product attributes.</p>
+<p><strong>Analytics:</strong> Python/Pandas EDA → customer segmentation → correlation analysis → business insights → Power BI dashboard.</p>
+<p><strong>Final Project Title:</strong> <strong>Banking Customer Analytics & BI Dashboard</strong></p>
+</div>
+</section>
+
+<section>
+<h2>Validation Notes</h2>
+<div class="card note">
+<ul>
+<li>All numeric metrics on this page were recalculated from the supplied Banking.csv.</li>
+<li>Missing-value check returned <strong>0 missing cells</strong> across the dataset.</li>
+<li>Income bands use: Low ≤ $100K, Mid $100K–$300K, High &gt; $300K.</li>
+<li>Correlation indicates association and does not establish causation.</li>
+<li>Gender labels are not invented; they depend on the supplied gender lookup.</li>
+<li>Recommendations are business hypotheses to validate, not guaranteed outcomes.</li>
+</ul>
+</div>
+</section>
+
+<div class="footer">
+Verified V2 • Banking Customer Analytics & BI Dashboard • Python EDA + Power BI business-story companion
+</div>
+
+</div>
+</body>
+</html>
